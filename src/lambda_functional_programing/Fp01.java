@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fp01 {
-        /*
-      1- ) Lambda (Functional Programming) Java 8 ile kullanilmaya baslamistir.
+    /*
+  1- ) Lambda (Functional Programming) Java 8 ile kullanilmaya baslamistir.
 
-      2- ) Functional Programming'de "Ne yapilacak" (What to do) üzerine yogunlaşılır.
-           Structured Programming "Nasıl yapılacak" (How to do) üzerine yoğunlaşılır.
+  2- ) Functional Programming'de "Ne yapilacak" (What to do) üzerine yogunlaşılır.
+       Structured Programming "Nasıl yapılacak" (How to do) üzerine yoğunlaşılır.
 
-      3- ) Functional Programming Arrays ve Collections ile kullanilir.
+  3- ) Functional Programming Arrays ve Collections ile kullanilir.
 
-      4- ) "entryset() methodu ile Map, Set'e dönüştürülerek Functional Programming'de
-            kullanilir.
-       */
+  4- ) "entryset() methodu ile Map, Set'e dönüştürülerek Functional Programming'de
+        kullanilir.
+   */
     public static void main(String[] args) {
         List<Integer> liste = new ArrayList<>();
         liste.add(8);
@@ -43,70 +43,78 @@ public class Fp01 {
         tekrarsizCiftElemanlarinKupununCarpimiFunctional(liste);
         System.out.println(" ");
         getMaxEleman(liste);
+        System.out.println(" ");
+        getMinEleman(liste);
+        System.out.println(" ");
+        getMAxEleman02(liste);
     }
-        /*
-        1- ) Ardışık list elementlerini aynı satırda aralarında boşluk bırakarak
-        yazdıran bir method oluşturun.(Structured)
-         */
-        public static void listElemanlariniYazdirStructured(List<Integer>list){
 
-            for (Integer w:list
-                 ) {
-                System.out.print(w+" ");//8 9 131 10 9 10 2 8
-            }
-        }
-        /*
-    1- )Ardışık list elementlerini aynı satırda aralarında boşluk bırakarak
-    yazdıran bir method oluşturun.(Functional)
+    /*
+    1- ) Ardışık list elementlerini aynı satırda aralarında boşluk bırakarak
+    yazdıran bir method oluşturun.(Structured)
      */
-        public static void listElemanlariniYazdirFunctional(List<Integer>list){
-            list.stream().forEach(t-> System.out.print(t+" "));//8 9 131 10 9 10 2 8
+    public static void listElemanlariniYazdirStructured(List<Integer> list) {
+
+        for (Integer w : list
+        ) {
+            System.out.print(w + " ");//8 9 131 10 9 10 2 8
+        }
+    }
+
+    /*
+1- )Ardışık list elementlerini aynı satırda aralarında boşluk bırakarak
+yazdıran bir method oluşturun.(Functional)
+ */
+    public static void listElemanlariniYazdirFunctional(List<Integer> list) {
+        list.stream().forEach(t -> System.out.print(t + " "));//8 9 131 10 9 10 2 8
                   /*
         --> stream() method collection'dan elementleri akışa dahil etmek için ve
             methodlara ulaşmak için kullanilir.
          */
-        }
-         /*
-    2- )Cift list elemanlarini aynı satırda aralarında boşluk bırakarak
-    yazdıran bir method oluşturun.(Structured)
-     */
-        public static void ciftElemanlariYazdirStructured(List<Integer>list){
-            for (Integer w:list
-                 ) {
-               if (w%2==0){
-                   System.out.print(w+" ");//8 10 10 2 8
-               }
-            }
-        }
-        /* 2- )Cift list elemanlarini aynı satırda aralarında boşluk bırakarak
-    yazdıran bir method oluşturun.(Functional)*/
-    public static void ciftElemanlariYazdirFunctional(List<Integer>list){
-        list.stream().filter(t->t%2==0).forEach(t-> System.out.print(t+" "));
     }
 
-     /*
-    3- ) Ardışık tek list elemanlarinin karelerini ayni
-    satırda aralarında boşluk bırakarak yazdıran bir method oluşturun.(Functional)
-     */
-    public static void tekElemanlarinKareleriniYazdir(List<Integer>list){
-        list.stream().filter(t->t%2!=0).map(t->t*t).forEach(t-> System.out.print(t+" "));//81 17161 81
-    //elemanlarin degerleri degisecekse map() methodu kullanilir.
+    /*
+2- )Cift list elemanlarini aynı satırda aralarında boşluk bırakarak
+yazdıran bir method oluşturun.(Structured)
+*/
+    public static void ciftElemanlariYazdirStructured(List<Integer> list) {
+        for (Integer w : list
+        ) {
+            if (w % 2 == 0) {
+                System.out.print(w + " ");//8 10 10 2 8
+            }
         }
+    }
 
-         /*
-    4- ) Ardışık tek list elementlerinin küplerini tekrarsız olarak aynı
-    satırda aralarında boşluk bırakarak yazdıran bir method oluşturun.
-       */
-    public static void tekrarsizTekElemanlarinKupunuYazdir(List<Integer>list){
-        list.stream().distinct().filter(t->t%2!=0).map(t->t*t*t).forEach(t-> System.out.print(t+" "));//729 2248091
+    /* 2- )Cift list elemanlarini aynı satırda aralarında boşluk bırakarak
+yazdıran bir method oluşturun.(Functional)*/
+    public static void ciftElemanlariYazdirFunctional(List<Integer> list) {
+        list.stream().filter(t -> t % 2 == 0).forEach(t -> System.out.print(t + " "));
+    }
+
+    /*
+   3- ) Ardışık tek list elemanlarinin karelerini ayni
+   satırda aralarında boşluk bırakarak yazdıran bir method oluşturun.(Functional)
+    */
+    public static void tekElemanlarinKareleriniYazdir(List<Integer> list) {
+        list.stream().filter(t -> t % 2 != 0).map(t -> t * t).forEach(t -> System.out.print(t + " "));//81 17161 81
+        //elemanlarin degerleri degisecekse map() methodu kullanilir.
+    }
+
+    /*
+4- ) Ardışık tek list elementlerinin küplerini tekrarsız olarak aynı
+satırda aralarında boşluk bırakarak yazdıran bir method oluşturun.
+  */
+    public static void tekrarsizTekElemanlarinKupunuYazdir(List<Integer> list) {
+        list.stream().distinct().filter(t -> t % 2 != 0).map(t -> t * t * t).forEach(t -> System.out.print(t + " "));//729 2248091
     }
 
     /*
     5- ) Tekrarsız çift elementlerin karelerinin toplamını hesaplayan bir method
     oluşturun.
      */
-    public static void tekrarsizCiftElemanlarinKareToplamlariniYazdir(List<Integer>list){
-        Integer toplam=list.stream().distinct().filter(t->t%2==0).map(t->t*t).reduce(0,(t,u)->t+u);
+    public static void tekrarsizCiftElemanlarinKareToplamlariniYazdir(List<Integer> list) {
+        Integer toplam = list.stream().distinct().filter(t -> t % 2 == 0).map(t -> t * t).reduce(0, (t, u) -> t + u);
         System.out.println(toplam);
     }
 
@@ -121,13 +129,30 @@ public class Fp01 {
     /*
     7- ) List elemanları arasından en büyük değeri bulan bir method oluşturun.
      */
-    public static void getMaxEleman(List<Integer>list){
-       Integer max=list.stream().distinct().reduce(Integer.MIN_VALUE,(t,u)->t>u? t:u);
-        System.out.println(max);
-
+    public static void getMaxEleman(List<Integer> list) {
+        Integer max = list.stream().distinct().reduce(Integer.MIN_VALUE, (t, u) -> t > u ? t : u);
+        System.out.print(max);
+    }
+    public static void getMAxEleman02(List<Integer> list) {
+        Integer max = list.stream().distinct().sorted().reduce(Integer.MIN_VALUE, (t, u) -> u);
+        System.out.print(max + " ");
     }
 
+    /*
+    8- )List elemanları arasından en küçük değeri bulan bir method oluşturun.(2 Yol ile)
+     */
+    public static void getMinEleman(List<Integer> list) {
+        Integer min = list.stream().distinct().reduce(list.get(0), (t, u) -> t < u ? t : u);
+        System.out.print(min);
+
+
+    /*
+    9- ) List elemanları arasından 7'den büyük, çift, en küçük değeri bulan bir
+    method oluşturun.
+     */
+
     }
+}
 
 
 
