@@ -39,6 +39,10 @@ public class Fp01 {
         tekrarsizTekElemanlarinKupunuYazdir(liste);
         System.out.println(" ");
         tekrarsizCiftElemanlarinKareToplamlariniYazdir(liste);
+        System.out.println(" ");
+        tekrarsizCiftElemanlarinKupununCarpimiFunctional(liste);
+        System.out.println(" ");
+        getMaxEleman(liste);
     }
         /*
         1- ) Ardışık list elementlerini aynı satırda aralarında boşluk bırakarak
@@ -114,10 +118,14 @@ public class Fp01 {
         System.out.print(carpim + " ");
     }
 
-
     /*
     7- ) List elemanları arasından en büyük değeri bulan bir method oluşturun.
      */
+    public static void getMaxEleman(List<Integer>list){
+       Integer max=list.stream().distinct().reduce(Integer.MIN_VALUE,(t,u)->t>u? t:u);
+        System.out.println(max);
+
+    }
 
     }
 
