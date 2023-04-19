@@ -106,6 +106,19 @@ public class Fp01 {
         System.out.println(toplam);
     }
 
+    /*
+    6- ) Tekrarsız çift elemanların küpünün çarpımını hesaplayan bir method oluşturun.
+     */
+    public static void tekrarsizCiftElemanlarinKupununCarpimiFunctional(List<Integer> list) {
+        Integer carpim = list.stream().distinct().filter(t -> t % 2 == 0).map(t -> t * t * t).reduce(1, (t, u) -> t * u);
+        System.out.print(carpim + " ");
+    }
+
+
+    /*
+    7- ) List elemanları arasından en büyük değeri bulan bir method oluşturun.
+     */
+
     }
 
 
