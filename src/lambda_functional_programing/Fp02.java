@@ -133,13 +133,13 @@ public class Fp02 {
     */
     public static void tersSiralamaylaTekrarsizElemanlarinYarisi(List<Integer> list) {
         List<Double>sonuc=list.
-                stream().
-                distinct().
-                filter(t->t>5).
-                map(Utils::yarisiniAl).
-                sorted(Comparator.reverseOrder()).
-                collect(Collectors.toList());
-        System.out.println(sonuc);
+                stream().//Gerekli methodları kullanmamızı sağlar
+                        distinct().//Tekarlı olanları almaz
+                        filter(t -> t > 5).//Koşula göre filtreleme yapar
+                        map(Utils::yarisiniAl).//Her bir elemanın değerini değiştirmeye yarar
+                        sorted(Comparator.reverseOrder()).//Sıralama yapar
+                        collect(Collectors.toList());//Elamanları collection'a çevirir.
+        System.out.print(sonuc);
 
     }
 }
