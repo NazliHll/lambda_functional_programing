@@ -25,7 +25,6 @@ public class Fp03 {
          */
     }
 
-
     /*
    1- ) Tüm elemanları büyük harf ile yazdıran bir method oluşturun.
     */
@@ -43,4 +42,7 @@ public class Fp03 {
     /*
     2- ) Elemanları uzunluklarına göre sıralayıp yazdıran bir method oluşturun.
      */
+    public static void uzunlugaGoreYazdir(List<String> list) {
+
+    }
 }
