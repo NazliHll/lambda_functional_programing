@@ -1,6 +1,7 @@
 package lambda_functional_programing;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Fp03 {
@@ -19,6 +20,7 @@ public class Fp03 {
         System.out.println(liste);
         buyukHarfleYazdir01(liste); // ALİ ALİ MARK AMANDA CHRİSTOPHER JACKSON MARİANO ALBERTO TUCKER BENJAMİN
         System.out.println();
+        uzunlugaGoreYazdir(liste);
 
         /*
          buyukHarfleYazdir02(liste); // [ALİ, ALİ, MARK, AMANDA, CHRİSTOPHER, JACKSON, MARİANO, ALBERTO, TUCKER, BENJAMİN]
@@ -43,6 +45,8 @@ public class Fp03 {
     2- ) Elemanları uzunluklarına göre sıralayıp yazdıran bir method oluşturun.
      */
     public static void uzunlugaGoreYazdir(List<String> list) {
-
+        list.stream().sorted(Comparator.comparing(String::length)).forEach(Utils::ayniSatirdaBosluklaYazdir);
+        // Comparator.comparing(); --> siralama kosulunu belirtmek icin kullanilir.
     }
+
 }
