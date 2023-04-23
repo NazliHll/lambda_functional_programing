@@ -1,7 +1,9 @@
 package lambda_functional_programing;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Fp02 {
        /*
@@ -24,23 +26,24 @@ public class Fp02 {
         liste.add(10);
         liste.add(2);
         liste.add(8);
-        System.out.println(liste);
-        listElemanlariniYazdirFunctional(liste);
+        System.out.println(liste);//[8, 9, 131, 10, 9, 10, 2, 8]
+        listElemanlariniYazdirFunctional(liste);//8 9 131 10 9 10 2 8
         System.out.println("");
-        ciftElemanlariYazdir(liste);
+        ciftElemanlariYazdir(liste);//8 10 10 2 8
         System.out.println("");
-        tekElemanlarinKareleriniYazdir(liste);
+        tekElemanlarinKareleriniYazdir(liste);//81 17161 81
         System.out.println("");
-        tekrarsizTekElemanlarinKupunuYazdir(liste);
+        tekrarsizTekElemanlarinKupunuYazdir(liste);//729 2248091
         System.out.println("");
-        tekrarsizCiftElemanlarinKareToplami01(liste);
+        tekrarsizCiftElemanlarinKareToplami01(liste);//168
         System.out.println();
-        tekrarsizCiftElemanlarinKareToplami02(liste);
-        tekrarsizCiftElemanlarinKareToplami03(liste);
-        tekrarsizCiftElemanlarinKupununCarpimi(liste);
-        getMaxEleman(liste);
-        getMinEleman(liste);
-        yedidenBuyukCiftMin(liste);
+        tekrarsizCiftElemanlarinKareToplami02(liste);//168
+        tekrarsizCiftElemanlarinKareToplami03(liste);//168
+        tekrarsizCiftElemanlarinKupununCarpimi(liste);//4096000
+        getMaxEleman(liste);//131
+        getMinEleman(liste);//2
+        yedidenBuyukCiftMin(liste);//8
+        tersSiralamaylaTekrarsizElemanlarinYarisi(liste);//[65.5, 5.0, 4.5, 4.0]
     }
 
     /*
@@ -129,6 +132,16 @@ public class Fp02 {
    (elamanın ikiye bölüm sonucunu) bulan bir method oluşturun.
     */
     public static void tersSiralamaylaTekrarsizElemanlarinYarisi(List<Integer> list) {
+        List<Double>sonuc=list.
+                stream().
+                distinct().
+                filter(t->t>5).
+                map(Utils::yarisiniAl).
+                sorted(Comparator.reverseOrder()).
+                collect(Collectors.toList());
+        System.out.println(sonuc);
+
+    }
 }
 
 

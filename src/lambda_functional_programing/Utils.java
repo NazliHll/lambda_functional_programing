@@ -18,4 +18,7 @@ public class Utils {
     public static int kupunuAl(int x){
         return x*x*x;
     }
+    public static double yarisiniAl(int x){
+        return x/2.0;
+    }
 }
