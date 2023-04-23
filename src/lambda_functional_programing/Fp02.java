@@ -32,6 +32,10 @@ public class Fp02 {
         tekElemanlarinKareleriniYazdir(liste);
         System.out.println("");
         tekrarsizTekElemanlarinKupunuYazdir(liste);
+        System.out.println("");
+        tekrarsizCiftElemanlarinKareToplami01(liste);
+        tekrarsizCiftElemanlarinKareToplami02(liste);
+        tekrarsizCiftElemanlarinKareToplami03(liste);
     }
 
     /*
@@ -70,7 +74,26 @@ public class Fp02 {
     5- ) Tekrarsız çift elemanların karelerinin toplamını hesaplayan bir method oluşturun.
      */
     public static void tekrarsizCiftElemanlarinKareToplami01(List<Integer> list) {
+        Integer toplam = list.stream().distinct().filter(Utils::ciftElemanlariSec).map(Utils::karesiniAl).reduce(Math::addExact).get();
+        System.out.print(toplam);
+    }
 
+    public static void tekrarsizCiftElemanlarinKareToplami02(List<Integer> list) {
+        Integer toplam = list.stream().distinct().filter(Utils::ciftElemanlariSec).map(Utils::karesiniAl).reduce(0, Math::addExact);
+        System.out.println(toplam);
+    }
+
+    public static void tekrarsizCiftElemanlarinKareToplami03(List<Integer> list) {
+        Integer toplam = list.stream().distinct().filter(Utils::ciftElemanlariSec).map(Utils::karesiniAl).reduce(0, Integer::sum);
+        System.out.println(toplam);
+    }
+
+    /*
+   6- ) Tekrarsız çift elemanların küpünün çarpımını hesaplayan bir method oluşturun.
+    */
+    public static void tekrarsizCiftElemanlarinKupununCarpimi(List<Integer> list) {
+      Integer carpim=  list.stream().distinct().filter(Utils::ciftElemanlariSec).map(Utils::kupunuAl).reduce(1,Math::multiplyExact);
+        System.out.println(carpim);
     }
 }
 
