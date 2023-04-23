@@ -32,7 +32,7 @@ public class Fp03 {
     public static void buyukHarfleYazdir01(List<String> list) { // 1. YOL
         list.stream().map(String::toUpperCase).forEach(Utils::ayniSatirdaBosluklaYazdir);
     }
-    /* public static void buyukHarfleYazdir02(List<String> list){ // 2. YOL
+   /* public static void buyukHarfleYazdir02(List<String> list){ // 2. YOL
         list.replaceAll(String::toUpperCase);
         System.out.print(list);
         Listemiz mutable oldugu icin yorum satirina aldik. Bu method listemizi degistirdi.
