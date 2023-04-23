@@ -34,8 +34,13 @@ public class Fp02 {
         tekrarsizTekElemanlarinKupunuYazdir(liste);
         System.out.println("");
         tekrarsizCiftElemanlarinKareToplami01(liste);
+        System.out.println();
         tekrarsizCiftElemanlarinKareToplami02(liste);
         tekrarsizCiftElemanlarinKareToplami03(liste);
+        tekrarsizCiftElemanlarinKupununCarpimi(liste);
+        getMaxEleman(liste);
+        getMinEleman(liste);
+        yedidenBuyukCiftMin(liste);
     }
 
     /*
@@ -92,8 +97,38 @@ public class Fp02 {
    6- ) Tekrarsız çift elemanların küpünün çarpımını hesaplayan bir method oluşturun.
     */
     public static void tekrarsizCiftElemanlarinKupununCarpimi(List<Integer> list) {
-      Integer carpim=  list.stream().distinct().filter(Utils::ciftElemanlariSec).map(Utils::kupunuAl).reduce(1,Math::multiplyExact);
+        Integer carpim = list.stream().distinct().filter(Utils::ciftElemanlariSec).map(Utils::kupunuAl).reduce(1, Math::multiplyExact);
         System.out.println(carpim);
     }
+
+    /*
+    7- ) List elemanları arasından en büyük değeri bulan bir method oluşturun.
+     */
+    public static void getMaxEleman(List<Integer> list) {
+        Integer max = list.stream().distinct().reduce(Math::max).get();
+        System.out.println(max);
+    }
+
+    /*
+   8- )List elemanları arasından en küçük değeri bulan bir method oluşturun.
+   (Method Reference)
+    */
+    public static void getMinEleman(List<Integer> list) {
+        Integer min = list.stream().distinct().reduce(Math::min).get();
+        System.out.println(min);
+    }
+
+    // 9- ) List elemanları arasından 7'den büyük, çift, en küçük değeri bulan bir method oluşturun.
+
+    public static void yedidenBuyukCiftMin(List<Integer> list) {
+      Integer min=  list.stream().distinct().filter(t->t>7).filter(Utils::ciftElemanlariSec).reduce(Math::min).get();
+        System.out.println(min);
+    }
+    /*
+   10) Ters sıralama ile tekrarsız ve 5'ten büyük elemanların yarı değerlerini
+   (elamanın ikiye bölüm sonucunu) bulan bir method oluşturun.
+    */
+    public static void tersSiralamaylaTekrarsizElemanlarinYarisi(List<Integer> list) {
 }
+
 
