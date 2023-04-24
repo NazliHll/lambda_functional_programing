@@ -28,6 +28,10 @@ public class Fp03 {
         sonKaraktereGoreTekrarsizSirala(liste);
         System.out.println();
         uzunlukVeIlkHarfeGoreSiralaYazdir(liste);
+        System.out.println();
+        System.out.println(uzunluguOnikidenAzMı(liste));
+        System.out.println(xIleBaslamiyorMu(liste));
+        System.out.println(rIleBitiyorMu(liste));
         /*
          buyukHarfleYazdir02(liste); // [ALİ, ALİ, MARK, AMANDA, CHRİSTOPHER, JACKSON, MARİANO, ALBERTO, TUCKER, BENJAMİN]
          */
@@ -124,5 +128,21 @@ public class Fp03 {
     9- ) Tüm elemanların uzunluklarının 12'den az olup olmadığını kontrol eden
     bir method oluşturun.
      */
+    public static boolean uzunluguOnikidenAzMı(List<String>list){
+        return list.stream().allMatch(t->t.length()<12);
+    }
+    /*
+   10- ) Hiçbir elemanın 'X' ile başlamadığını kontrol eden bir method oluşturun.
+    */
+    public static boolean xIleBaslamiyorMu(List<String> list) {
+        return list.stream().noneMatch(t->t.startsWith("X"));
+    }
+
+    /*
+    11- ) Herhangi bir elemanın 'r' ile bitip bitmediğini kontrol eden bir method oluşturun.
+     */
+    public static boolean rIleBitiyorMu(List<String> list) {
+        return list.stream().anyMatch(t->t.endsWith("r"));
+    }
 
 }
