@@ -21,4 +21,7 @@ public class Utils {
     public static double yarisiniAl(int x){
         return x/2.0;
     }
+    public static char sonKarakteriAl(String str){
+        return str.charAt(str.length()-1);
+    }
 }

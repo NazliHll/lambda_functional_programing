@@ -23,6 +23,8 @@ public class Fp03 {
         uzunlugaGoreYazdir(liste);
         System.out.println();
         uzunlugunaGoreTersYazdir(liste);
+        System.out.println();
+        sonKaraktereGoreTekrarsizSirala(liste);
 
         /*
          buyukHarfleYazdir02(liste); // [ALİ, ALİ, MARK, AMANDA, CHRİSTOPHER, JACKSON, MARİANO, ALBERTO, TUCKER, BENJAMİN]
@@ -55,6 +57,21 @@ public class Fp03 {
     */
     public static void uzunlugunaGoreTersYazdir(List<String> list) {
         list.stream().sorted(Comparator.comparing(String::length).reversed()).forEach(Utils::ayniSatirdaBosluklaYazdir);
+    }
+
+    /*
+    4- ) Elemanları son karakterlerine göre sıralayıp tekrarsız yazdıran bir method oluşturun.
+     */
+    public static void sonKaraktereGoreTekrarsizSirala(List<String> list) {
+        list.stream().distinct().sorted(Comparator.comparing(Utils::sonKarakteriAl)).forEach(Utils::ayniSatirdaBosluklaYazdir);
+    }
+
+    /*
+    5) Elemanları önce uzunluklarına göre ve sonra ilk karakterine göre sıralayıp
+    yazdıran bir method oluşturun.
+     */
+    public static void uzunlukVeIlkHarfeGoreSiralaYazdir(List<String> list) {
+        list.stream().sorted(Comparator.comparing(String::length).thenComparing())
     }
 
 }
