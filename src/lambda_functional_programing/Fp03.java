@@ -1,5 +1,6 @@
 package lambda_functional_programing;
 
+import javax.swing.text.Utilities;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -25,7 +26,8 @@ public class Fp03 {
         uzunlugunaGoreTersYazdir(liste);
         System.out.println();
         sonKaraktereGoreTekrarsizSirala(liste);
-
+        System.out.println();
+        uzunlukVeIlkHarfeGoreSiralaYazdir(liste);
         /*
          buyukHarfleYazdir02(liste); // [ALİ, ALİ, MARK, AMANDA, CHRİSTOPHER, JACKSON, MARİANO, ALBERTO, TUCKER, BENJAMİN]
          */
@@ -71,7 +73,56 @@ public class Fp03 {
     yazdıran bir method oluşturun.
      */
     public static void uzunlukVeIlkHarfeGoreSiralaYazdir(List<String> list) {
-        list.stream().sorted(Comparator.comparing(String::length).thenComparing())
+        list.stream().sorted(Comparator.comparing(String::length).thenComparing(Utils::ilkKarakteriAl)).forEach(Utils::ayniSatirdaBosluklaYazdir);
     }
+      /*
+    6- ) Uzunluğu 5'ten büyük olan elemanları silen bir method oluşturun.
+     */
+    /*public static void bestenBuyukleriSil(List<String> list) {
+        list.removeIf(t->t.length()>5);
+        System.out.print(list);
+        Listemizi degistiriyor. Biz bu sekilde olmasini istemiyoruz.
+        List mutable oldugu icin elemanlari işlem sonrasi kalici degistiginden
+        comment-out yapiyoruz
+    }*/
+
+
+    /*
+    7- ) ‘A’, ‘a’ ile başlayan yada ‘N’, ‘n’ ile biten elemanları silen bir method oluşturun.
+     */
+    /*public static void baslagiciAYadaSonuNOlaniSil01(List<String> list) { // 1. YOL
+        list.removeIf(t -> t.charAt(0) == 'A' || t.charAt(0) == 'a' || t.charAt(t.length() - 1) == 'N' || t.charAt(t.length() - 1) == 'n');
+        System.out.println(list);
+        Listemizi degistiriyor. Biz bu sekilde olmasini istemiyoruz.
+        List mutable oldugu icin elemanlari işlem sonrasi kalici degistiginden
+        comment-out yapiyoruz
+    }*/
+
+
+    /*public static void baslagiciAYadaSonuNOlaniSil02(List<String> list) { // 2. YOL
+        list.removeIf(t -> t.startsWith("A") || t.startsWith("a") || t.endsWith("N") || t.endsWith("n"));
+        System.out.print(list);
+        Listemizi degistiriyor. Biz bu sekilde olmasini istemiyoruz.
+        List mutable oldugu icin elemanlari işlem sonrasi kalici degistiginden
+        comment-out yapiyoruz
+    }*/
+
+
+    /*
+    8- ) Uzunluğu 8 ile 10 arası olan yada 'o' ile biten elemanları yazdıran bir method oluşturun.
+     */
+    /*public static void uzunlugu8ile10ArasiVeOIleBiteniSil(List<String> list) {
+        list.removeIf(t -> (t.length() > 7 && t.length() < 11) || t.endsWith("O") || t.endsWith("o"));
+        System.out.println(list);
+        Listemizi degistiriyor. Biz bu sekilde olmasini istemiyoruz.
+        List mutable oldugu icin elemanlari işlem sonrasi kalici degistiginden
+        comment-out yapiyoruz
+    }*/
+
+
+    /*
+    9- ) Tüm elemanların uzunluklarının 12'den az olup olmadığını kontrol eden
+    bir method oluşturun.
+     */
 
 }
