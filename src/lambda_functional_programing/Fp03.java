@@ -21,6 +21,8 @@ public class Fp03 {
         buyukHarfleYazdir01(liste); // ALİ ALİ MARK AMANDA CHRİSTOPHER JACKSON MARİANO ALBERTO TUCKER BENJAMİN
         System.out.println();
         uzunlugaGoreYazdir(liste);
+        System.out.println();
+        uzunlugunaGoreTersYazdir(liste);
 
         /*
          buyukHarfleYazdir02(liste); // [ALİ, ALİ, MARK, AMANDA, CHRİSTOPHER, JACKSON, MARİANO, ALBERTO, TUCKER, BENJAMİN]
@@ -47,6 +49,12 @@ public class Fp03 {
     public static void uzunlugaGoreYazdir(List<String> list) {
         list.stream().sorted(Comparator.comparing(String::length)).forEach(Utils::ayniSatirdaBosluklaYazdir);
         // Comparator.comparing(); --> siralama kosulunu belirtmek icin kullanilir.
+    }
+    /*
+   3- ) Elemanları uzunluklarına göre ters sıralayıp yazdıran bir method oluşturun.
+    */
+    public static void uzunlugunaGoreTersYazdir(List<String> list) {
+        list.stream().sorted(Comparator.comparing(String::length).reversed()).forEach(Utils::ayniSatirdaBosluklaYazdir);
     }
 
 }
