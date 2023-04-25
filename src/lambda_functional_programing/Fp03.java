@@ -138,7 +138,9 @@ public class Fp03 {
         return list.stream().noneMatch(t->t.startsWith("X"));
     }
 
-
+    /*
+    11- ) Herhangi bir elemanın 'r' ile bitip bitmediğini kontrol eden bir method oluşturun.
+         */
     public static boolean rIleBitiyorMu(List<String> list) {
         return list.stream().anyMatch(t->t.endsWith("r"));
     }
