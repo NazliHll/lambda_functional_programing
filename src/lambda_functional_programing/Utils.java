@@ -22,7 +22,7 @@ public class Utils {
         return x/2.0;
     }
     public static char sonKarakteriAl(String str){
-        return str.charAt(str.length()-1);
+        return str.charAt(str.length());
     }
     public static char ilkKarakteriAl(String str){
         return str.charAt(0);
