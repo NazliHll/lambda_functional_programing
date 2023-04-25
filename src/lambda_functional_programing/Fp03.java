@@ -124,10 +124,7 @@ public class Fp03 {
     }*/
 
 
-    /*
-    9- ) Tüm elemanların uzunluklarının 12'den az olup olmadığını kontrol eden
-    bir method oluşturun.
-     */
+
     public static boolean uzunluguOnikidenAzMı(List<String>list){
         return list.stream().allMatch(t->t.length()<12);
     }
