@@ -1,7 +1,9 @@
 package lambda_functional_programing;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Fp05 {
     public static void main(String[] args) {
@@ -18,6 +20,8 @@ public class Fp05 {
 
         System.out.println(ortalamaPuanlarVerilenSayidanBuyukMu(coursesList,75));//true
         System.out.println( herhangiBirKursAdiKelimeyiIceriyorMu(coursesList,"Turkish"));//true
+        System.out.println(ortalamasiEnYuksekKursunAdiniYazdir(coursesList));//Turkish Night
+        System.out.println(ortalamaPuanaGoreSiralaVeIlkVerilenleriAtla(coursesList,1));
 
     }
     /*
@@ -37,6 +41,13 @@ public class Fp05 {
     3- ) Ortalama puanı en yüksek olan kursu yazdırmak için bir yöntem oluşturun
      */
     public static String ortalamasiEnYuksekKursunAdiniYazdir(List<Courses> list) {
-        return list.stream().
+        return list.stream().sorted(Comparator.comparing(Courses::getAverageScore).reversed()).findFirst().get().getCourseName();
+    }
+    /*
+   4- ) Liste öğelerini artan düzende ortalama puana göre sıralayın ve ilk verilenleri atlayın
+    */
+    public static List<Courses> ortalamaPuanaGoreSiralaVeIlkVerilenleriAtla(List<Courses> list, int x) {
+        return list.stream().sorted(Comparator.comparing(Courses::getAverageScore)).skip(x).collect(Collectors.toList());
+
     }
 }
